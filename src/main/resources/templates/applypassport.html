@@ -1,0 +1,252 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Application</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://paytmblogcdn.paytm.com/wp-content/uploads/2024/01/Blog_Paytm_Passport-Renewal.jpeg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 18px;
+        }
+        input[type="text"], input[type="date"], select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        select {
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Passport Application Form</h1>
+        <form action="#" method="post">
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" name="userid" required>
+            
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" required>
+            
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required>
+            
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+            
+            <label for="pin">Security Pin:</label>
+            <input type="text" id="pin" name="pin" required>
+            
+            <label for="serviceType">Type of Service:</label>
+            <select id="serviceType" name="serviceType" required>
+                <option value="">Select Service Type</option>
+                <option value="Regular">Regular</option>
+                <option value="Tatkal">Tatkal</option>
+            </select>
+            
+            <label for="bookletType">Booklet Type:</label>
+            <select id="bookletType" name="bookletType" required>
+                <option value="">Select Booklet Type</option>
+                <option value="32 Pages">32 Pages</option>
+                <option value="64 Pages">64 Pages</option>
+            </select>
+            
+            <label for="issueDate">Issue Date:</label>
+            <input type="date" id="issueDate" name="issueDate" required>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Renewal Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.ardhas.com/img/evisa-banner1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Added box-shadow */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333; /* Added color */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease; /* Added transition */
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #007bff; /* Changed focus border color */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Added transition */
+        }
+
+        button[type="reset"] {
+            background-color: #f44336;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Changed hover color */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Passport Registration Form</h1>
+    <div class="container">
+        <form id="passportRenewalForm" action="registerPassportData" method="post">
+            
+            <div class="form-group">
+                <label for="userId">User ID:</label>
+                <input type="text" th:value="${session.userdata.userId}" id="userId" name="userid" required>
+                
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="cityId" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" id="countryId" name="country" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" id="stateId" name="state" required>
+            </div>
+            <div class="form-group">
+            <label for="pin">Security Pin:</label>
+            <input type="text" id="pin" name="pin" required>
+            <div>
+            <div class="form-group">
+                <label for="serviceType">Type of Service:</label>
+                <select id="serviceType" name="typeofservice" required>
+                    <option value="normal">Normal</option>
+                    <option value="tatkal">Tatkal</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="bookletType">Booklet Type:</label>
+                <select id="bookletType" name="booklettype" required>
+                    <option value="30 Pages">30 Pages</option>
+                    <option value="60 Pages">60 Pages</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="issueDate">Issue Date:</label>
+                <input type="date" id="issueDate" name="receivedissuedate" required>
+            </div>
+            
+            
+            <div class="form-group">
+                <label for="reason">Reason for Renewal:</label>
+                <textarea id="reason" name="reason" rows="4" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+    </div>
+
+
+</body>
+</html>

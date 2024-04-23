@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+</head>
+<body>
+    <h1>User Information</h1>
+    <div>
+        <strong>User ID:</strong> <span th:text="${session.userid}"></span>
+    </div>
+    <div>
+        <strong>Password:</strong> <span th:text="${session.password}" ></span>
+    </div>
+    <div>
+        <button onclick="goHome()">Go Home</button>
+    </div>
+
+    <script>
+        function goHome() {
+            // Redirect to the home page or any other desired location
+            window.location.href = "/gohome";
+        }
+    </script>
+</body>
+</html>
+

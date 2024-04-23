@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passport Visa Management System</title>
+<style>
+    /* Global Styles */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f2f2f2;
+        font-size: 18px;
+        background-image: url('https://www.ardhas.com/img/evisa-banner1.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    /* Header Styles */
+    header {
+        background-color: #6bdaff80;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    .header-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .header-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 20px;
+        margin: 0 15px;
+        transition: color 0.3s ease;
+    }
+    .header-links a:hover {
+        color: #ccc;
+    }
+    /* Dashboard Styles */
+    .dashboard {
+        border-radius: 20px;
+        padding: 40px;
+        margin-top: 40px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+    .dashboard h2 {
+        margin-top: 0;
+        text-align: center;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        font-size: 36px;
+        margin-bottom: 30px;
+        color: white;
+    }
+    .service-boxes {
+        display: flex;
+        justify-content: space-between;
+    }
+    .service-box {
+        width: calc(25% - 20px);
+        border: 2px solid #007bff;
+        border-radius: 20px;
+        padding: 20px;
+        text-align: center;
+        box-sizing: border-box;
+        transition: transform 0.3s ease;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+    .service-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1); /* Added floating shadow effect */
+    }
+    .service-box h3 {
+        font-size: 28px; /* Increased font size */
+        margin-bottom: 10px;
+        color: #000980;
+        text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        padding: 20px 10px; /* Adjusted padding */
+        border-radius: 10px;
+        display: inline-block;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Added floating shadow effect on text */
+    }
+    .service-box p {
+        font-size: 18px;
+        margin: 0;
+        color: #fff;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Added floating shadow effect on text */
+    }
+    /* Custom classes for different services */
+    .passport-service {
+        background-image: url('https://cdn.pixabay.com/photo/2023/12/28/10/36/traveler-8473851_1280.png');
+    }
+    .visa-service {
+        background-image: url('https://t4.ftcdn.net/jpg/06/54/28/05/360_F_654280553_Wlu7M9gRbgkcXfEmfKpXj8XKdbiK5m8K.jpg');
+    }
+    .renewal-service {
+        background-image: url('https://blogger.googleusercontent.com/img/a/AVvXsEi5KKDmL71fxvJVArXvosT22MSuAR0QR2XPyTG8shVMFX2ByR0NXEFxSr7E-MUfK6dOOG-p2_TPvK2VDULpPJ6ZsD71KKNQndIfFZd7vEu7cAT6ZpbFDOCKXhhMlynaLBCqjIMzNBLiUx7w_aRXhgZJMzr-unarKqN32D9yfxRNPPigowebBINJ2cnMTIc');
+    }
+    .cancellation-service {
+        background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmEdkzpZSRl2Im9wOgVlkd0VBdRdjYcHZmkZtEzpBqRLlvN8ICTzkEzPI7mzDhj-af2XAXW3yUv8LtlN2SGeqFVtzNulJr5xpXcIaPncsGsVcZ0BtAr5-s3KNPxVTTn1z_7nF2ygAVpZJH3Xha84JWM3f7mGBPixa4CX9XwoMFQA6ezNsF-D-YDrTyh78/s1600/11close-icon-white-on-the-blue-background-vector-3451386.jpg');
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1 style="font-size: 48px;">Passport Visa Management System</h1>
+    <div class="header-links">
+        <a href="#">About Us</a>
+        <a href="#">Passport Office</a>
+        <a href="#">Contact Us</a>
+    </div>
+</header>
+<div class="container">
+    <div class="dashboard">
+        <h2>Explore Our Services</h2>
+        <div class="service-boxes">
+            <div class="service-box passport-service">
+                <a href="applyPassport"><h3> APPLY FOR PASSPORT</h3></a>
+                <p>Get your passport application processed.</p>
+            </div>
+            <div class="service-box visa-service">
+                <a href="applyVisa"><h3>APPLY FOR VISA</h3></a>
+                <p>Apply for a visa to travel abroad.</p>
+            </div>
+            <div class="service-box renewal-service">
+                <a href="passportRenewal"><h3>PASSPORT RENEWAL</h3></a>
+                <p>Renew your expired or expiring passport.</p>
+            </div>
+            <div class="service-box cancellation-service">
+                <a href="cancelVisa"><h3>VISA CANCELLATION</h3></a>
+                <p>Cancel your existing visa.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

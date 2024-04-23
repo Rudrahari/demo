@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Visa Cancellation</title>
+
+    <link rel="stylesheet" href="css/cancellation.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Visa Cancellation Form</h1>
+
+        <form id="visaCancellationForm">
+
+            <div class="form-group">
+
+                <label for="userId">User ID:</label>
+
+                <input type="text" id="userId" th:value="${session.userdata.userId}" required>
+
+            </div>
+
+ 
+
+            <div class="form-group">
+
+                <label for="passportNumber">Passport Number:</label>
+
+                <input type="text" id="passportNumber" th:value="${session.passportinfo.passportId}" required>
+
+            </div>
+
+ 
+
+            <div class="form-group">
+
+                <label for="visaNumber">Visa Number to Cancel:</label>
+
+                <input type="text" id="visaNumber" required>
+
+            </div>
+
+ 
+
+            <div class="form-group">
+
+                <label for="dateOfIssue">Date of Issue:</label>
+
+                <input type="date" id="dateOfIssue" required>
+
+            </div>
+
+ 
+
+            <button type="submit">Submit</button>
+
+        </form>
+
+    </div>
+
+ 
+
+    <script>
+
+        document.getElementById("visaCancellationForm").addEventListener("submit", function (event) {
+
+            event.preventDefault(); // Prevent default form submission
+
+ 
+
+            // Get form data
+
+            const formData = {
+
+                userId: document.getElementById("userId").value,
+
+                passportNumber: document.getElementById("passportNumber").value,
+
+                visaNumber: document.getElementById("visaNumber").value,
+
+                dateOfIssue: document.getElementById("dateOfIssue").value
+
+            };
+
+            console.log(formData);
+
+ 
+
+            // Send POST request to backend API
+
+            const response = fetch('http://localhost:8080/cancelvisadetails', {
+
+                method: 'POST',
+
+                headers: {
+
+                    'Content-Type': 'application/json'
+
+                },
+
+                body: JSON.stringify(formData)
+
+            });
+
+            const data = response.json()
+
+ 
+
+            console.log(data); // Show response message
+
+        });
+
+    </script>
+
+</body>
+
+</html>

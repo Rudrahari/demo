@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://tse1.mm.bing.net/th?q=what%20is%20s%20visa'); 
+            background-size: cover;
+            background-position: center;
+            color: #000000; /* Adjust text color as needed */
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: grid;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #007bff; /* Blue submit button, adjust color as needed */
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Visa Application</h1>
+        <form action="applyVisa" method="post">
+            <div>
+                <label for="userId">User ID:</label>
+                <input type="text" id="userId" name="userId" th:value="${session.userdata.userId}" required>
+            </div>
+            <!--<div>
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" required>
+            </div>
+            <div>
+                <label for="occupation">Occupation:</label>
+                <input type="text" id="occupation" name="occupation" required>
+            </div>-->
+             <div>
+            <label for="country">Country:</label>
+            <select id="country" name="country" required>
+                <option value="">Select Country</option>
+                <option value="USA">USA</option>
+                <option value="CHINA">CHINA</option>
+                <option value="JAPAN">JAPAN</option>
+           
+            </select>
+        </div>
+             <div>
+            <label for="occupation">Occupation:</label>
+            <select id="occupation" name="occupation" required>
+                <option value="">Select Occupation</option>
+                <option value="Private Employee">Private Employee</option>
+                <option value="Student">Student</option>
+                <option value="Government Employee">Government Employee</option>
+                <option value="Self Employed">Self Employed</option>
+                <option value="Retired Employee">Retired Employee</option>
+    
+            </select>
+        </div>
+            <div>
+                <label for="dateOfApplication">Date of Application:</label>
+                <input type="date" id="dateOfApplication" name="dateOfApplication" required>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
